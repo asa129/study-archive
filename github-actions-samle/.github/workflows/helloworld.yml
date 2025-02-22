@@ -6,6 +6,4 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "build start"
-      - run: npm run build
-      - run: echo "build end"
+      - run: echo "Hello World!"
