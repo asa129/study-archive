@@ -3,3 +3,4 @@ const greet = () => {
 }
 
 greet();
+greet();
