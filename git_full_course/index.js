@@ -1,3 +1,3 @@
 const greet = () => {
-  console.log("Hello Git");
+  console.log("Hello Git local");
 }
