@@ -19,6 +19,7 @@ console.log(tuple);
 // array
 let arr: Array<number> = [1, 2, 3];
 let array: number[] = [1, 2, 3];
+console.log(arr);
 console.log(array);
 
 // null
