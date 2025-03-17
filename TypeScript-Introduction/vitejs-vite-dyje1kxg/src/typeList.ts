@@ -12,9 +12,18 @@ console.log(num);
 let str: string = 'aaa';
 console.log(str);
 
+// tuple
+let tuple: [number, string] = [1, "aaa"]
+console.log(tuple);
+
 // array
-let array: [] = [];
+let arr: Array<number> = [1, 2, 3];
+let array: number[] = [1, 2, 3];
 console.log(array);
+
+// null
+let aaa: null = null;
+console.log(aaa);
 
 // any なんでもOK　なるべく使わないように
 let any: any = 'hoge';
