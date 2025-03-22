@@ -6,7 +6,7 @@ function App() {
   const [text, setText] = useState("");
   const [display, setDisplay] = useState(false);
 
-  const onChangeValue = (e) => {
+  const onChangeText = (e) => {
     setText(e.target.value);
   };
   const onClickDisplay = () => {
@@ -14,8 +14,7 @@ function App() {
   };
   return (
     <>
-      <input type="text" onChange={onChangeValue} />
-      {text}
+      <input value={text} onChange={onChangeText} />
       <br />
       <br />
       <button onClick={onClickDisplay}>子コンポーネント表示</button>
