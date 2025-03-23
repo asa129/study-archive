@@ -10,7 +10,7 @@ export const Router = () => {
       <Route path="/" exact element={<Home />} />
       <Route path="/Page1" exact element={<Page1 />}>
         {Page1Routes.map((props) => (
-          <Route path={props.path} element={props.element} />
+          <Route key={props.path} path={props.path} element={props.element} />
         ))}
       </Route>
       <Route path="/Page2" element={<Page2 />} />
