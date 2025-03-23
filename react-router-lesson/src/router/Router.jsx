@@ -3,6 +3,7 @@ import { Page1 } from "../Page1";
 import { Page2 } from "../Page2";
 import { Routes, Route } from "react-router-dom";
 import { Page1Routes } from "./Page1Routes";
+import { Page2Routes } from "./Page2Routes";
 
 export const Router = () => {
   return (
@@ -13,7 +14,11 @@ export const Router = () => {
           <Route key={props.path} path={props.path} element={props.element} />
         ))}
       </Route>
-      <Route path="/Page2" element={<Page2 />} />
+      <Route path="/Page2" element={<Page2 />}>
+        {Page2Routes.map((props) => (
+          <Route key={props.path} path={props.path} element={props.element} />
+        ))}
+      </Route>
     </Routes>
   );
 };
