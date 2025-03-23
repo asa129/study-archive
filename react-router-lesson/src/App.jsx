@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import "./App.css";
 import { Child } from "./Child";
 
@@ -12,13 +12,17 @@ function App() {
   const onClickDisplay = () => {
     setDisplay(!display);
   };
+  const onClickClose = useCallback(() => setDisplay(!display), [display]);
+  useMemo(() => {
+    console.log(4 + 1);
+  }, []);
   return (
     <>
       <input value={text} onChange={onChangeText} />
       <br />
       <br />
       <button onClick={onClickDisplay}>子コンポーネント表示</button>
-      <Child display={display} />
+      <Child display={display} onClickClose={onClickClose} />
     </>
   );
 }
