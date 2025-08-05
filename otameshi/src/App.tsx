@@ -9,6 +9,7 @@ function App() {
     address: "asasaasas"
   });
   console.log("レンダリングしてるよ")
+  
 
   return (
     <>
@@ -16,9 +17,7 @@ function App() {
       {state}
 
       firstName： <input type="value" onChange={(e) => setSelfInfo({
-        firstName: e.target.value,
-        lastName: selfInfo.lastName,
-        address: selfInfo.address
+        ...selfInfo, firstName: e.target.value
       })} /><br />
       {selfInfo?.firstName}<br />
       lastName： <input type="value" onChange={(e) =>  setSelfInfo({
