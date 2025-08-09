@@ -8,7 +8,7 @@ function App() {
     lastName: "bbb",
     address: "asasaasas"
   });
-  console.log("レンダリングしてるよ")
+  console.log("レンダリングしてるよ~~")
   
 
   return (
