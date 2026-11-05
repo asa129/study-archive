@@ -1,6 +1,6 @@
 # study-archive
 
-2025年2月〜8月の学習で作ったリポジトリを1つにまとめたアーカイブです。
+2025年2月〜9月の学習で作ったリポジトリを1つにまとめたアーカイブです。
 各フォルダは元のリポジトリそのもので、コミット履歴もそのまま残っています（`git log -- <フォルダ名>` で確認できます）。
 
 > 統合のときに、ハードコードされていたAPIキーなどは履歴からも `***REMOVED***` に置き換えています。
@@ -26,3 +26,5 @@
 | [blog-test](./blog-test) | 2025-07-19 〜 2025-07-19 | TypeScript | microCMS ブログテンプレート |
 | [my-next-app](./my-next-app) | 2025-07-29 〜 2025-08-09 | TypeScript | Next.js × Cloudflare D1 |
 | [otameshi](./otameshi) | 2025-08-05 〜 2025-08-09 | CSS | StackBlitz でのお試し |
+| [tech-blog](./tech-blog) | 2025-07-13 〜 2025-09-01 | TypeScript | 技術ブログ（Next.js × Firebase App Hosting） |
+| [my-tech-blog](./my-tech-blog) | 2025-09-02 〜 2025-09-13 | MDX | 技術ブログ作り直し版（Next.js × Velite / MDX） |
