@@ -1,0 +1,68 @@
+name: Release
+
+on: push
+
+jobs:
+  project_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm install
+      - name: Run test
+        run: npm run test
+        env:
+          VITE_NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_URL }}
+          VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+  project_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm install
+      - name: Run build
+        run: npm run build
+        env:
+          VITE_NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_URL }}
+          VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: dist
+          path: dist
+
+  project_deploy:
+    runs-on: ubuntu-latest
+    needs: project_build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js and cache
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+          cache: "npm"
+      - name: Download Artifact
+        uses: actions/download-artifact@main
+        with:
+          name: dist
+          path: dist
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Deploy to Firebase
+        uses: joinflux/firebase-tools@v9.16.0
+        with:
+          args: deploy --project=study-record-7da4e --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
